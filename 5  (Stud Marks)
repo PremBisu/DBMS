@@ -38,11 +38,17 @@ CREATE TABLE Stud_Marks (
         Total_Marks NUMBER
     );
 
+INSERT INTO Stud_Marks (Roll, Name, Total_Marks) VALUES (1, 'Alice', 1000);
+INSERT INTO Stud_Marks (Roll, Name, Total_Marks) VALUES (2, 'Bob', 950);
+INSERT INTO Stud_Marks (Roll, Name, Total_Marks) VALUES (3, 'Charlie', 880);
+INSERT INTO Stud_Marks (Roll, Name, Total_Marks) VALUES (4, 'David', 820);
+
  CREATE TABLE Result (
         Roll NUMBER PRIMARY KEY,
         Name VARCHAR2(50),
         Class VARCHAR2(30)
     );
+
 
 BEGIN
         FOR student IN (SELECT Roll, Name, Total_Marks FROM Stud_Marks) LOOP
@@ -51,10 +57,5 @@ BEGIN
         END LOOP;
     END;
     /
-
-INSERT INTO Stud_Marks (Roll, Name, Total_Marks) VALUES (1, 'Alice', 1000);
-INSERT INTO Stud_Marks (Roll, Name, Total_Marks) VALUES (2, 'Bob', 950);
-INSERT INTO Stud_Marks (Roll, Name, Total_Marks) VALUES (3, 'Charlie', 880);
-INSERT INTO Stud_Marks (Roll, Name, Total_Marks) VALUES (4, 'David', 820);
 
 SELECT * FROM Result;
